@@ -1,0 +1,20 @@
+# 1) Ask the student if they had a medical cause and store the answer in `medical_cause`.
+#    (Also clean the input so it becomes either 'Y' or 'N'.)
+medicalc = (input("Do You Have any Medical Cause (Y/N)"))
+# 2) If `medical_cause` is 'Y':
+#    - Print that the student is allowed to attend the exam.
+if medicalc == "Y":
+    print("Student Is Allowed To Attend the exam")
+if medicalc == "N":
+    atten = int(input("Enter Your Attendence Percentage"))
+    if atten >= 75:
+        print("Allowed")
+    else:
+        print("Not Allowed")
+
+# 3) Otherwise (medical_cause is 'N'):
+#    a) Ask for the student’s attendance percentage and store it in `atten`.
+#    b) If `atten` is 75 or more:
+#       - Print "Allowed"
+#    c) Else:
+#       - Print "Not allowed"
