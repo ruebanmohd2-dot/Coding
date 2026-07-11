@@ -25,8 +25,8 @@ while serving:
 
     while i < len(notes):
         count = remaining//notes[i]
-        if count > 0
-        print(f" {count} x {notes[i]}-unit notes(s) = {count * notes[i]}")
+        if count > 0:
+            print(f" {count} x {notes[i]}-unit notes(s) = {count * notes[i]}")
         used[notes[i]] = count
         remaining -= count * notes[i]
         i+1
