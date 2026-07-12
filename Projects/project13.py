@@ -1,0 +1,10 @@
+
+n = int(input("Enter a number for the number of rows: "))
+for i in range(n):
+    for j in range(n - 1 - i):
+        print(" ", end="")
+
+    for k in range(i + 1):
+        print("*", end="")
+
+    print()
