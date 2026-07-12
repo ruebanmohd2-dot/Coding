@@ -45,3 +45,12 @@ for i in range(1, halfDiamRow+1):
 #           - Print the current `num` without moving to the next line.
 #           - Increase `num` by 1 after each print.
 #       v) Print a newline to move to the next row.
+for i in range(1, halfDiamRow):
+    for j in range(1, space+1):
+        print(end=" ")
+    space = space+1
+    number = 1
+    for j in range(2*(halfDiamRow-i)-1):
+        print(end=str(number))
+        number = number+1
+    print()
