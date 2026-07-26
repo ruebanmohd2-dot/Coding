@@ -1,9 +1,8 @@
 try:
-    N1 = float(input("Enter First Number"))
-    N2 = float(input("Enter Second Number"))
     Operation = input(
         "Enter Operation To Be Done On The two numbers: (Expexted Entry + - * /)")
-
+    N1 = float(input("Enter First Number"))
+    N2 = float(input("Enter Second Number"))
     if Operation == "+":
         def addition(x, y):
             return x + y
