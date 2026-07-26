@@ -23,7 +23,6 @@ print(L)
 print(L[0])
 print(L[-1])
 
-L.reverse()  # decending
-print(L)
+L.sort(reverse=True)
 print(L[0])
 print(L[-1])
