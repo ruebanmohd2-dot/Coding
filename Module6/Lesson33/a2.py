@@ -7,12 +7,12 @@ pygame.display.set_caption("Adding Image And Background Image")
 backgroundimage = pygame.transform.scale(pygame.image.load(
     'Module6\\Lesson33\\d62033ee49601c7b4b7d886b3d09dfe9.jpg').convert(), (SCREEN_HEIGHT, SCREEN_WIDTH))
 jaguarimage = pygame.transform.scale(pygame.image.load(
-    'Module6\Lesson33\AdobeStock_352888923-1.avif').convert_alpha(), (200, 200))
+    'Module6\\Lesson33\\jaguar.jpeg').convert_alpha(), (200, 200))
 jaguar_rect = jaguarimage.get_rect(
     center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2-30))
 
 text = pygame.font.Font(None, 36).render(
-    'Hello World', True, pygame.color('black'))
+    'Hello World', True, pygame.Color('black'))
 
 text_rect = text.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2+110))
 
@@ -24,24 +24,15 @@ def game_loop():
     running = True
 
     while running:
-
         for event in pygame.event.get():
-
             if event.type == pygame.QUIT:
-
                 running = False
-
         screen.blit(backgroundimage, (0, 0))
-
         screen.blit(jaguarimage, jaguar_rect)
-
         screen.blit(text, text_rect)
-
         pygame.display.flip()
-
-        clock.tick(30)
-
-        pygame.quit()
+        clock.tick(1)
+    pygame.quit()
 
 
 game_loop()
