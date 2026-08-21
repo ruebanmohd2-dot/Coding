@@ -12,7 +12,7 @@ jaguar_rect = jaguarimage.get_rect(
     center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2-30))
 
 text = pygame.font.Font(None, 36).render(
-    'Hello World', True, pygame.Color('black'))
+    'Hello World', True, pygame.Color('blue'))
 
 text_rect = text.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2+110))
 
