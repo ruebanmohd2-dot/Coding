@@ -178,7 +178,9 @@ def change_background():
 ball = Ball()
 ball1 = Ball()
 ball2 = Ball()
-
+ball.rect.center = (random.randint(50, 400), random.randint(50, 400))
+ball1.rect.center = (random.randint(50, 400), random.randint(50, 400))
+ball2.rect.center = (random.randint(50, 400), random.randint(50, 400))
 allsprites = pygame.sprite.Group()
 allsprites.add(ball)
 allsprites.add(ball1)
@@ -206,7 +208,7 @@ while running:
 
             ball.colorchange()
             ball1.colorchange()
-            # ball2.colorchange()
+            ball2.colorchange()
 
         elif event.type == BACKGROUND_CHANGE:
 
