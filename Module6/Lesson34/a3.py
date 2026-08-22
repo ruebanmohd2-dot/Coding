@@ -73,13 +73,13 @@ def main():
                 done = True
 
         pressed = pygame.key.get_pressed()
-        if pressed == [pygame.K_d]:
+        if pressed[pygame.K_a]:
             x -= 5
-        if pressed == [pygame.K_a]:
+        if pressed[pygame.K_d]:
             x += 5
-        if pressed == [pygame.K_w]:
+        if pressed[pygame.K_w]:
             y -= 5
-        if pressed == [pygame.K_s]:
+        if pressed[pygame.K_s]:
             y += 5
 
         x = min(max(0, x), screen_width-sprite_width)
@@ -101,7 +101,7 @@ def main():
         pygame.draw.rect(screen, current_color,
                          (x, y, sprite_width, sprite_height))
         pygame.display.flip()
-        clock.tick(120)
+        clock.tick(720)
 
     pygame.quit()
 
