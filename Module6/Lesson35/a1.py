@@ -178,13 +178,16 @@ def change_background():
 ball = Ball()
 ball1 = Ball()
 ball2 = Ball()
+ball3 = Ball()
 ball.rect.center = (random.randint(50, 400), random.randint(50, 400))
 ball1.rect.center = (random.randint(50, 400), random.randint(50, 400))
 ball2.rect.center = (random.randint(50, 400), random.randint(50, 400))
+ball3.rect.center = (random.randint(50, 400), random.randint(50, 400))
 allsprites = pygame.sprite.Group()
 allsprites.add(ball)
 allsprites.add(ball1)
 allsprites.add(ball2)
+allsprites.add(ball3)
 
 
 screen = pygame.display.set_mode((500, 400))
@@ -209,6 +212,7 @@ while running:
             ball.colorchange()
             ball1.colorchange()
             ball2.colorchange()
+            ball3.colorchange()
 
         elif event.type == BACKGROUND_CHANGE:
 
@@ -229,6 +233,6 @@ while running:
 
 # 5. FPS
 
-    clock.tick(60)
+    clock.tick(120)
 
 pygame.quit()
