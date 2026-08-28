@@ -31,26 +31,11 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 pygame.display.set_caption("Space Invader")
 
-# --------------------------------------------------
-
-# Background
-
-# --------------------------------------------------
 
 background = pygame.image.load("Module6\\Lesson37\\b1.jpg").convert()
 
 background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
-# --------------------------------------------------
-
-# UFO / Icon
-icon = pygame.image.load("Module6\\Lesson37\\Character.png").convert_alpha()
-
-# Scale icon for window
-icon = pygame.transform.scale(icon, (32, 32))
-
-pygame.display.set_icon(icon)
-# Player
 playerImg = pygame.image.load("Module6\\Lesson37\\Character.png").convert()
 
 playerImg = pygame.transform.scale(playerImg, (PLAYER_WIDTH, PLAYER_HEIGHT))
@@ -64,30 +49,23 @@ enemyX = []
 enemyY = []
 enemyX_change = []
 enemyY_change = []
-num_of_enemies = 2
+num_of_enemies = 1
 
-for i in range(num_of_enemies):
+image = pygame.image.load(
+    "Module6\\Lesson37\\Enemy sprite.jpg").convert_alpha()
 
-    image = pygame.image.load(
-        "Module6\\Lesson37\\Enemy sprite.jpg").convert_alpha()
+image = pygame.transform.scale(image, (ENEMY_WIDTH, ENEMY_HEIGHT))
 
-    image = pygame.transform.scale(image, (ENEMY_WIDTH, ENEMY_HEIGHT))
+enemyImg.append(image)
 
-    enemyImg.append(image)
+enemyX.append(random.randint(0, SCREEN_WIDTH - ENEMY_WIDTH))
 
-    enemyX.append(random.randint(0, SCREEN_WIDTH - ENEMY_WIDTH))
+enemyY.append(random.randint(ENEMY_START_Y_MIN, ENEMY_START_Y_MAX))
 
-    enemyY.append(random.randint(ENEMY_START_Y_MIN, ENEMY_START_Y_MAX))
+enemyX_change.append(ENEMY_SPEED_X)
 
-    enemyX_change.append(ENEMY_SPEED_X)
+enemyY_change.append(ENEMY_SPEED_Y)
 
-    enemyY_change.append(ENEMY_SPEED_Y)
-
-# --------------------------------------------------
-
-# Bullet
-
-# --------------------------------------------------
 
 bulletImg = pygame.image.load("Module6\\Lesson37\\bullets.png").convert_alpha()
 
@@ -104,12 +82,6 @@ font = pygame.font.Font("freesansbold.ttf", 32)
 textX = 10
 
 textY = 10
-
-# --------------------------------------------------
-
-# Game Over
-
-# --------------------------------------------------
 
 over_font = pygame.font.Font("freesansbold.ttf", 64)
 
@@ -177,15 +149,12 @@ while running:
 
             playerX_change = 0
 
-# Player Movement
     playerX += playerX_change
 
     playerX = max(0, min(playerX, SCREEN_WIDTH - PLAYER_WIDTH))
 
     for i in range(num_of_enemies):
-        if enemyY[i] > 340:
-            for j in range(num_of_enemies):
-                enemyY[j] = 2000
+        if score_value == 1 or score_value > 1:
             game_over_text()
             break
 
@@ -197,8 +166,6 @@ while running:
 
             enemyY[i] += enemyY_change[i]
 
-# Collision
-
         if isCollision(enemyX[i], enemyY[i], bulletX, bulletY):
             bulletY = PLAYER_START_Y
             bullet_state = "ready"
@@ -207,13 +174,6 @@ while running:
             enemyY[i] = random.randint(ENEMY_START_Y_MIN, ENEMY_START_Y_MAX)
         enemy(enemyX[i], enemyY[i], i)
 
-
-# --------------------------------------------------
-
-# Bullet Movement
-
-# --------------------------------------------------
-
     if bulletY <= 0:
         bulletY = PLAYER_START_Y
         bullet_state = "ready"
@@ -221,15 +181,7 @@ while running:
         fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
 
-# player
-
     player(playerX, playerY)
-
-# Score
     show_score(textX, textY)
-
-# Update display
-
     pygame.display.update()
-
 pygame.quit()
