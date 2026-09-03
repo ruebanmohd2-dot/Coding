@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 window = Tk()
 
-# window.title('')
+window.title('Antivirus')
 window.geometry('500x500')
 
 
