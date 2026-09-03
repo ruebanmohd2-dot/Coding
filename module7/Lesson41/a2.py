@@ -8,7 +8,8 @@ window.geometry('500x500')
 
 def display():
     # messagebox.geometry("10x10")
-    messagebox.showwarning("Alert,Virus Found")
+    messagebox.showwarning("Alert", "Virus Found")
+    # messagebox.showwinfo("Alert,Virus Found")
 
 
 Btn = Button(text='Scan for virus', command=display,
